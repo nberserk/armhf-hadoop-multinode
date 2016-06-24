@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "replacing master ip with $MASTER"
+sed -i "s/HOSTNAME/$MASTER/" /usr/local/hadoop/etc/hadoop/core-site.xml
+
+echo "Starting sshd"
+exec /usr/sbin/sshd -D
