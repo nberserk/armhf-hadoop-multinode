@@ -4,9 +4,7 @@ from armv7/armhf-ubuntu_core:15.10
 COPY cross-build-tools/ /usr/bin
 RUN [ "cross-build-start" ]
 
-ENV http_proxy http://168.219.61.252:8080
-
-RUN apt-get update && apt-get install -y openjdk-7-jdk openssh-server openssh-client rsync vim
+RUN apt-get update && apt-get install -y openjdk-7-jdk openssh-server openssh-client rsync vim curl
 
 # install daemontools for svscan  
 RUN wget http://ftp.cn.debian.org/debian/pool/main/d/daemontools/daemontools_0.76-6_armhf.deb && dpkg -i daemontools_0.76-6_armhf.deb
