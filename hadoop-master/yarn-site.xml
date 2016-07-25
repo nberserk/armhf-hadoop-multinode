@@ -28,5 +28,9 @@
     <name>yarn.nodemanager.delete.debug-delay-sec</name>
     <value>600</value>
   </property>
-
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>master</value>
+    <description>The hostname of the RM.</description>
+  </property>
 </configuration>
