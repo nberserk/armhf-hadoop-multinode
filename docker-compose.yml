@@ -4,27 +4,25 @@ services:
     build:
       context: hadoop-base
       args:
-        - http_proxy=http://168.219.61.252:8080/
-        - https_proxy=http://168.219.61.252:8080/
-    image: 10.240.70.80:5000/armhf-hadoop-base
+    image: nberserk/armhf-hadoop-base
   hslave:
     build: hadoop-slave
-    image: 10.240.70.80:5000/armhf-hadoop-slave
+    image: nberserk/armhf-hadoop-slave
     depends_on:
       - hbase
   hmaster:
     build: hadoop-master
-    image: 10.240.70.80:5000/armhf-hadoop-master
+    image: nberserk/armhf-hadoop-master
     depends_on:
       - hbase
-  ss:
+  sslave:
     build: spark-slave
-    image: 10.240.70.80:5000/armhf-spark-slave
+    image: nberserk/armhf-spark-slave
     depends_on:
       - hslave
-  sm:
+  smaster:
     build: spark-master
-    image: 10.240.70.80:5000/armhf-spark-master
+    image: nberserk/armhf-spark-master
     depends_on:
       - hmaster
 
